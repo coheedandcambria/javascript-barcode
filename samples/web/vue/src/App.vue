@@ -1,16 +1,20 @@
 <template>
   <div id="app">
-    <HelloWorld title="Welcome to DBRJS VUE sample"/>
+    <router-link to='/'>HelloWorld</router-link>
+    <router-link to='/profile'>Profile</router-link>
+    <router-view  />
+    <!-- <HelloWorld title="Welcome to DBRJS VUE sample"/> -->
   </div>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
+import BarcodeScanner from './components/BarcodeScanner.vue'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
+    HelloWorld, BarcodeScanner
   }
 }
 </script>

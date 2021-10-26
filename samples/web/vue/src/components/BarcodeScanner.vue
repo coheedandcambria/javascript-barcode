@@ -33,13 +33,11 @@ export default {
             }
 
             await scanner.setUIElement(this.$el);
-            scanner.onFrameRead = results => {
-                if(results.length){
-                    console.log(results);
-                }
-            };
+            
             scanner.onUnduplicatedRead = (txt, result) => {
-                this.$emit("appendMessage", result.barcodeFormatString + ': ' + txt);
+                //this.$emit("appendMessage", result.barcodeFormatString + ': ' + txt);
+                console.log(result.barcodeFormatString + ', Text: ' + txt);
+                this.$router.push({name: 'home'});
             };
             await scanner.open();
 
@@ -48,12 +46,12 @@ export default {
             console.error(ex);
         }
     },
-    async beforeDestroy() {
+    /*async beforeDestroy() {
         this.bDestroyed = true;
         if(this.pScanner){
             await (this.pScanner).destroy();
         }
-    }
+    }*/
 }
 </script>
 

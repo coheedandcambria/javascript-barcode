@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>{{ title }}</h1>
-    
+
     <div v-if="!bShowScanner">
       Choose image(s) to decode:
       <input v-on:change="onIptChange" type="file" multiple accept="image/png,image/jpeg,image/bmp,image/gif">
@@ -81,9 +81,11 @@ export default {
     },
     showScanner(){
       this.bShowScanner = true;
+      this.$router.push({name: 'profile'});
     },
     hideScanner(){
       this.bShowScanner = false;
+      this.$router.push({name: 'home'});
     }
   }
 }
